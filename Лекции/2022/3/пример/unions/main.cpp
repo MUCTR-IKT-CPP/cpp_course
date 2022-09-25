@@ -14,14 +14,14 @@ void printValue(Value& val){
 
 int main(){
     Value value;
-    cout << sizeof(value) << endl;
-    printValue(value);
+    cout << sizeof(value) << endl; // 8
+    printValue(value); // 0 0 ''
     value.i = 56;
-    printValue(value);
+    printValue(value); // 56 2.76677e-322 '8'
     value.c = 'h';
-    printValue(value);
+    printValue(value); // 104 5.13828e-322 'h'
     value.f = 12.434;
-    printValue(value);
-    cout << value;
+    printValue(value); // 104 5.13828e-322 'h'
+    cout << value; // Ошибка
     return 0;
 }
