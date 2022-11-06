@@ -2,7 +2,9 @@
 #include <ctime>
 #include <string>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::ostream;
 
 template <typename T>
 class Array{
@@ -20,7 +22,7 @@ class Array{
                     index(index > container->length ? -1: index){
                 }
                 Iterator& operator++(){
-                    if(index != container->length)
+                    if(index != container->length - 1)
                         index++;
                     else
                         index = -1;
@@ -64,6 +66,7 @@ class Array{
         template <typename TF>
         friend ostream& operator<<(ostream& out, Array<TF>& arr);
 };
+
 template <typename T>
 ostream& operator<<(ostream& out, Array<T>& arr){
     out << "[ ";
@@ -78,14 +81,15 @@ ostream& operator<<(ostream& out, Array<T>& arr){
 
 int main(){
     srand(time(0));
-    Array<int> first(10);
-    Array<int> second(5);
+    Array<int> first(10, 0);
+    Array<int> second(5, 0);
     Array<double> third(6, 0.5);
     for(int i = 0; i < second.getLen(); i++)
         second[i] = rand() % 100;
     for(auto el: first)
-        cout << el << endl;
-    cout << first << endl; // [ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ]
+        cout << el << " ";
+    cout << endl;
+    cout << first << endl; // [ 0, 0, 0, 0, 0, 0, 0, 0, 0]
     cout << second << endl; // [ 45, 78, 71, 67, 30 ]
     cout << third << endl; // [ 0.5, 0.5, 0.5, 0.5, 0.5, 0.5 ]
     first.unite(second);
