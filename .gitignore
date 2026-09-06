@@ -1,0 +1,6 @@
+~$*
+.vscode/
+executable/
+build/
+*.exe
+tasks/
